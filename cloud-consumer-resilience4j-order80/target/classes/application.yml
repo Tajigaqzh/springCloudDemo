@@ -1,0 +1,32 @@
+server:
+  port: 80
+eureka:
+  instance:
+    # 实例名字
+    instance-id: cloud-order-resileence4j-consumer80
+  client:
+    service-url:
+      # 指定单机eureka server地址
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+spring:
+  application:
+    name: cloud-order-consumer
+
+
+resilience4j:
+  # 超时机制
+  timelimiter:
+    instances:
+      delay:
+        # 设置超时时间 2秒 服务提供者延迟5秒
+        timeoutDuration: 2
+  # 重试机制
+  retry:
+    instances:
+      retryA:
+        # 最大重试次数
+        maxRetryAttempts: 3
+        # 固定的重试间隔
+        waitDuration: 10s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2

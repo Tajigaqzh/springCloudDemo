@@ -1,0 +1,40 @@
+server:
+  port: 9527
+eureka:
+  instance:
+    #    自定义注册名
+    instance-id: cloud-gateway9527
+  client:
+    service-url:
+      # Eureka server 地址
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      # 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowCredentials: true
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+        add-to-simple-url-handler-mapping: true
+      # 路由配置
+      routes:
+        # 路由ID，没有固定规则但要求唯一，建议配合服务名
+        - id: payment_provider
+          # 匹配后提供服务的路由地址
+          # 需要注意的是uri的协议lb，表示启用Gateway的负载均衡的功能。
+          uri: lb://PAYMENT-PROVIDER
+          predicates:
+            - Path=/payment/**
+
+        - id: cloud-order-consumer
+          uri: http://localhost:80
+          predicates:
+            - Path=/order/*
+
+
