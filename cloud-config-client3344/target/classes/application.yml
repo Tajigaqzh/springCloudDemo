@@ -1,0 +1,41 @@
+server:
+  port: 3344
+eureka:
+  instance:
+    # 实例名字
+    instance-id: cloud-config-server3344
+  client:
+    service-url:
+      # 指定单机eureka server地址
+      #defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          # git仓库地址
+          uri: https://gitee.com/WCCRegistered/cloud-config3344.git
+          # 占位符url
+          search-paths:
+            - cloud-config
+      label: master
+
+#  rabbitmq:
+#    #主机地址
+#    host: 192.168.66.101
+#    #端口
+#    port: 5672
+#    #用户名
+#    username: guest
+#    #密码
+#    password: guest
+
+
+logging:
+
+  pattern:
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

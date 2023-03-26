@@ -1,0 +1,31 @@
+server:
+  port: 6500
+eureka:
+  instance:
+    # 实例名字
+    instance-id: cloud-auth-user6500
+  client:
+    service-url:
+      # 指定单机eureka server地址
+      #defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+spring:
+  application:
+    name: cloud-auth-user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+logging:
+  pattern:
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

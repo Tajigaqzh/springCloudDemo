@@ -22,6 +22,7 @@ spring:
             allowedMethods: "*"
             allowedHeaders: "*"
         add-to-simple-url-handler-mapping: true
+
       # 路由配置
       routes:
         # 路由ID，没有固定规则但要求唯一，建议配合服务名
@@ -31,10 +32,20 @@ spring:
           uri: lb://PAYMENT-PROVIDER
           predicates:
             - Path=/payment/**
+          filters:
+            - Log=true
 
         - id: cloud-order-consumer
           uri: http://localhost:80
           predicates:
             - Path=/order/*
+
+
+org:
+  my:
+    jwt:
+      skipAuthUrls:
+        - /user/login
+
 
 

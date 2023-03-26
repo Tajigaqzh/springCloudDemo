@@ -13,15 +13,16 @@ eureka:
     service-url:
       # Eureka server 地址
       defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
-management:
-  endpoints:
-    web:
-      exposure:
-        exclude: *
-      base-path: /actuator
-  endpoint:
-    health:
-      show-details: always
-    shutdown:
-      enabled: true
+#actuator监控该服务
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        exclude: *
+#      base-path: /actuator
+#  endpoint:
+#    health:
+#      show-details: always
+#    shutdown:
+#      enabled: true
 

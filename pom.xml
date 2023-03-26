@@ -17,6 +17,9 @@
         <module>cloud-consumer-resilience4j-order80</module>
         <module>cloud-gateway-gateway9527</module>
         <module>cloud-payment-provider8002</module>
+        <module>cloud-auth-user6500</module>
+        <module>cloud-config-client3344</module>
+        <module>cloud-coonfig-client3355</module>
     </modules>
 
     <properties>

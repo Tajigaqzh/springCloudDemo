@@ -9,12 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-consumer-order8080" />
         <module name="cloud-payment-provider8002" />
+        <module name="cloud-auth-user6500" />
+        <module name="cloud-config-client3344" />
         <module name="cloud-eureka-server-7002" />
         <module name="cloud-eureka-server7001" />
         <module name="cloud-consumer-openFeign-order80" />
         <module name="cloud-gateway-gateway9527" />
         <module name="cloud-provider-payment8001" />
         <module name="cloud-consumer-resilience4j-order80" />
+        <module name="cloud-coonfig-client3355" />
       </profile>
     </annotationProcessing>
   </component>
